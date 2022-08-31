@@ -6,38 +6,11 @@ namespace Zork
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Welcome to Zork!");        
-            string inputString = Console.ReadLine().Trim().ToUpper();
-            Commands command = ToCommand(inputString);
+            Console.WriteLine("Welcome to Zork!");
 
-            if (command == Commands.Quit)
-            {
-                Console.WriteLine("Thank you for playing.");
-            }
-            else if  (command == Commands.Look)
-            {
-                Console.WriteLine("This is an open field west of a white house, with a boarded front door.\nA rubber mat saying 'Welcome to Zork!' lies by the door.");
-            }
-            else if (command == Commands.North)
-            {
-                Console.WriteLine("You went North.");
-            }
-            else if (command == Commands.South)
-            {
-                Console.WriteLine("You went South.");
-            }
-            else if (command == Commands.East)
-            {
-                Console.WriteLine("You went East.");
-            }
-            else if (command == Commands.West)
-            {
-                Console.WriteLine("You went West.");
-            }
-            else
-            {
-                Console.WriteLine($"Unrecognized command: {inputString}");
-            }
+            string inputString = Console.ReadLine();
+            Commands command = ToCommand(inputString.Trim().ToUpper());
+            Console.WriteLine(command);
         }
         private static Commands ToCommand(string commandString) => Enum.TryParse(commandString, true, out Commands result) ? result : Commands.Unknown;
 
