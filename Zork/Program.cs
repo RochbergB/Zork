@@ -39,11 +39,7 @@ namespace Zork
                 Console.WriteLine($"Unrecognized command: {inputString}");
             }
         }
+        private static Commands ToCommand(string commandString) => Enum.TryParse(commandString, true, out Commands result) ? result : Commands.Unknown;
 
-        static Commands ToCommand(string commandString)
-        {
-            return Enum.TryParse<Commands>(commandString, true, out Commands command) ? command : Commands.Unknown;
-           
-        }
     }
 }
