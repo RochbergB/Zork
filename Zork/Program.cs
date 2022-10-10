@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.IO;
 
@@ -16,8 +17,8 @@ namespace Zork
 
         private static void Main(string[] args)
         {
-            string roomeFilename = args.Length > 0 ? args[(int)CommandLineArguments.RoomsFilename] : @"Content\Rooms.txt";
-            InitializeRoomDescription(roomeFilename);
+            string roomsFilename = args.Length > 0 ? args[(int)CommandLineArguments.RoomsFilename] : @"Content\Rooms.json";
+            InitializeRooms(roomsFilename);
 
             Console.WriteLine("Welcome to Zork!");
 
@@ -99,31 +100,9 @@ namespace Zork
             }
             return didMove;
         }
-        private static void InitializeRoomDescription(string roomsFilename)
+        private static void InitializeRooms(string roomsFilename)
         {
-            Dictionary<string, Room> roomMap = new Dictionary<string, Room>();
-            foreach (Room room in _rooms)
-            {
-                roomMap.Add(room.Name, room);
-            }
-
-            string[] lines = File.ReadAllLines(roomsFilename);
-            foreach (string line in lines)
-            {
-                const string fieldDelimiter = "##";
-                const int expectedFieldCount = 2;
-
-                string[] fields = line.Split(fieldDelimiter);
-                if (fieldDelimiter.Length != expectedFieldCount)
-                {
-                    throw new InvalidDataException("Invalid record.");
-                }
-
-                string name = fields[(int)Fields.Name];
-                string description = fields[(int)Fields.Description];
-
-                roomMap[name].Description = description;
-            }
+            _rooms = JsonConvert.DeserializeObject<Room[,]>(File.ReadAllText(roomsFilename));
         }
         private enum Fields
         {
@@ -136,7 +115,7 @@ namespace Zork
             RoomsFilename = 0
         }
 
-        private static readonly Room[,] _rooms =
+        private static Room[,] _rooms =
         {
             { new Room("Rocky Trail"), new Room("South of House"), new Room("Canyon View") },
             { new Room("Forest"), new Room("West of House"), new Room("Behind House") },
