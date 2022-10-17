@@ -1,15 +1,35 @@
-﻿namespace Zork
+﻿using Newtonsoft.Json;
+using System.Collections.Generic;
+
+namespace Zork
 {
-    internal class Room
+    public class Room
     {
         public string Name { get; }
 
         public string Description { get; set; }
 
-        public Room(string name, string description = "")
+        [JsonIgnore]
+        public Dictionary<Directions, Room> Neighbors { get; private set; }
+
+        [JsonProperty]
+        private Dictionary<Directions, string> NeighborNames { get; set; }
+
+        public Room(string name, string description, Dictionary<Directions, string> neighborNames)
         {
             Name = name;
             Description = description;
+            NeighborNames = neighborNames ?? new Dictionary<Directions, string>();
+        }
+
+        public void UpdateNeighbors(World world)
+        {
+            Neighbors = new Dictionary<Directions, Room>();
+            foreach (KeyValuePair<Directions, string> neighborName in NeighborNames)
+            {
+                Neighbors.Add(neighborName.Key, world.RoomsByName[neighborName.Value]);
+            }
+            NeighborNames = null;
         }
 
         public override string ToString()
