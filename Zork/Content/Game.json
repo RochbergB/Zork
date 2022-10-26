@@ -3,12 +3,16 @@
   "World": {
     "Items": [
       {
-        "Name": "Welcome Mat",
+        "Name": "Mat",
         "Description": "A rubber mat with the words 'Welcome to Zork!' written on it."
       },
       {
         "Name": "Mailbox",
         "Description": "A small mailbox."
+      },
+      {
+        "Name": "Leaves",
+        "Description": "A pile of leaves lie here."
       }
     ],
     "Rooms": [
@@ -21,14 +25,8 @@
           "West": "Forest 1"
         },
         "Inventory": [
-          {
-            "Name": "Welcome Mat",
-            "Description": "A rubber mat with the words 'Welcome to Zork!' written on it."
-          },
-          {
-            "Name": "Mailbox",
-            "Description": "A small mailbox."
-          }
+          "Mat",
+          "Mailbox"
         ]
       },
       {
@@ -84,11 +82,14 @@
       },
       {
         "Name": "Clearing",
-        "Description": "You are in a clearing, with a forest surrounding you on the west and south.",
+        "Description": "You are in a clearing, with a forest surrounding you on the west and south. There is a pile of leaves here.",
         "NeighborNames": {
           "West": "Forest 2",
           "South": "Forest 3"
-        }
+        },
+        "Inventory": [
+          "Leaves"
+        ]
       }
     ]
   }

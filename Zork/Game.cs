@@ -30,9 +30,29 @@ namespace Zork
 
                 Console.Write("\n> ");
 
-
                 string inputString = Console.ReadLine().Trim();
-                Commands command = ToCommand(inputString);
+                char seperator = ' ';
+                string[] commandTokens = inputString.Split(seperator);
+
+                string verb = null;
+                string subject = null;
+
+                if (commandTokens.Length == 0)
+                {
+                    continue;
+                }
+                else if (commandTokens.Length == 1)
+                {
+                    verb = commandTokens[0];
+                }
+                else
+                {
+                    verb = commandTokens[0];
+                    subject = commandTokens[1];
+                    //Guarentee that commandTokens.Length > 1
+                }
+
+                Commands command = ToCommand(verb);
 
                 string outputString;
                 switch (command)
@@ -43,7 +63,7 @@ namespace Zork
                         break;
 
                     case Commands.Look:
-                        outputString = Player.CurrentRoom.Description;
+                        outputString = Player.CurrentRoom.Description; //Add a foreach loop and/or another method to display the items in the room.
                         break;
 
                     case Commands.North:
@@ -60,6 +80,31 @@ namespace Zork
                             outputString = "The way is shut!";
                         }
                         break;
+
+                    case Commands.Take: //Take isn't complete
+                        if (subject == null)
+                        {
+                            outputString = "There is no such thing.";
+                        }
+                        else
+                        {
+                            outputString = "Taken";
+                        }
+                        break;
+
+
+                    case Commands.Drop: //Drop isn't complete
+                        if (subject == null)
+                        {
+                            outputString = "You don't have that item";
+                        }
+                        else
+                        {
+                            outputString = "Dropped";
+                        }
+                        break;
+
+                    //case Commands.Inventory:
 
                     default:
                         outputString = "Unknown command.";
