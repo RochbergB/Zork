@@ -33,6 +33,8 @@ namespace Zork
             return didMove;
         }
 
+        //May need to add an itemsbyname dictionary for the player's inventory
+
         private World _world;
         private Room _currentRoom;
     }
