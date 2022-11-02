@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 
 namespace Zork
 {
@@ -14,17 +15,29 @@ namespace Zork
             Player = new Player(World, startingLocation);
         }
 
+        private void Look()
+        {
+            Console.WriteLine(Player.CurrentRoom.Description);
+            foreach (Item item in Player.CurrentRoom.Inventory)
+            {
+                Console.WriteLine(item.LookDescription);
+            }
+        }
+
         public void Run()
         {
             Room previousRoom = null;
             bool isRunning = true;
-            while (isRunning)
+
+            
+
+        while (isRunning)
             {
                 Console.WriteLine($"{Player.CurrentRoom}");
 
                 if (previousRoom != Player.CurrentRoom)
                 {
-                    Console.WriteLine(Player.CurrentRoom.Description);
+                    Look();
                     previousRoom = Player.CurrentRoom;
                 }
 
@@ -49,12 +62,12 @@ namespace Zork
                 {
                     verb = commandTokens[0];
                     subject = commandTokens[1];
-                    //Guarentee that commandTokens.Length > 1
+                    
                 }
 
                 Commands command = ToCommand(verb);
 
-                string outputString;
+                string outputString = null;
                 switch (command)
                 {
                     case Commands.Quit:
@@ -63,7 +76,7 @@ namespace Zork
                         break;
 
                     case Commands.Look:
-                        outputString = Player.CurrentRoom.Description; //Add a foreach loop and/or another method to display the items in the room.
+                        Look();
                         break;
 
                     case Commands.North:
@@ -82,6 +95,14 @@ namespace Zork
                         break;
 
                     case Commands.Take: //Take isn't complete
+                        //foreach (Item item in Item)
+                        //{
+                        //    if (string.Compare(item.Name, subject, ignoreCase: true) == 0)
+                        //    {
+                        //        itemToTake = item;
+                        //        break;
+                        //    }
+                        //}
                         if (subject == null)
                         {
                             outputString = "There is no such thing.";
@@ -104,13 +125,31 @@ namespace Zork
                         }
                         break;
 
-                    //case Commands.Inventory:
+                    case Commands.Inventory:
+                        if (Player.Inventory.Count == 0)
+                        {
+                            outputString = "You are empty-handed";
+                        }
+                        else
+                        {
+                            outputString = "You are carring\n ";
+                            foreach (Item item in Player.Inventory)
+                            {
+                                outputString += $"{item.InventoryDescription}\n";
+                            }
+                        }
+                        break;
 
                     default:
                         outputString = "Unknown command.";
                         break;
                 }
-                Console.WriteLine(outputString);
+
+                if (outputString != null)
+                {
+                    Console.WriteLine(outputString);
+                }
+                    
             }
         }
         private static Commands ToCommand(string commandString) => Enum.TryParse(commandString, true, out Commands result) ? result : Commands.Unknown;

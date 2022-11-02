@@ -4,15 +4,18 @@
     "Items": [
       {
         "Name": "Mat",
-        "Description": "A rubber mat with the words 'Welcome to Zork!' written on it."
+        "LookDescription": "A rubber mat with the words 'Welcome to Zork!' written on it.",
+        "InventoryDescription":  "A Welcome Mat"
       },
       {
         "Name": "Mailbox",
-        "Description": "A small mailbox."
+        "LookDescription": "A small mailbox with a leaflet stands infront of the house.",
+        "InventoryDescription": "A Mailbox"
       },
       {
         "Name": "Leaves",
-        "Description": "A pile of leaves lie here."
+        "LookDescription": "A pile of leaves lie here.",
+        "InventoryDescription": "Leaves"
       }
     ],
     "Rooms": [
@@ -24,7 +27,7 @@
           "South": "South of House",
           "West": "Forest 1"
         },
-        "Inventory": [
+        "InventoryNames": [
           "Mat",
           "Mailbox"
         ]
@@ -82,12 +85,12 @@
       },
       {
         "Name": "Clearing",
-        "Description": "You are in a clearing, with a forest surrounding you on the west and south. There is a pile of leaves here.",
+        "Description": "You are in a clearing, with a forest surrounding you on the west and south.",
         "NeighborNames": {
           "West": "Forest 2",
           "South": "Forest 3"
         },
-        "Inventory": [
+        "InventoryNames": [
           "Leaves"
         ]
       }
