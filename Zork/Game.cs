@@ -50,6 +50,9 @@ namespace Zork
                 string verb = null;
                 string subject = null;
 
+                Item itemToTake = null;
+                Item itemToDrop = null;
+
                 if (commandTokens.Length == 0)
                 {
                     continue;
@@ -94,34 +97,39 @@ namespace Zork
                         }
                         break;
 
-                    case Commands.Take: //Take isn't complete
-                        //foreach (Item item in Item)
-                        //{
-                        //    if (string.Compare(item.Name, subject, ignoreCase: true) == 0)
-                        //    {
-                        //        itemToTake = item;
-                        //        break;
-                        //    }
-                        //}
-                        if (subject == null)
+                    case Commands.Take: 
+                        foreach (Item item in Player.CurrentRoom.Inventory)
                         {
-                            outputString = "There is no such thing.";
-                        }
-                        else
-                        {
-                            outputString = "Taken";
+                            if (string.Compare(item.Name, subject, ignoreCase: true) != 0)
+                            {
+                                outputString = "What are you trying to take?";
+                            }
+                            else
+                            {
+                                itemToTake = item;
+                                Player.Inventory.Add(itemToTake);
+                                Player.CurrentRoom.Inventory.Remove(itemToTake);
+                                outputString = "Taken";
+                                break;
+                            }
                         }
                         break;
 
-
-                    case Commands.Drop: //Drop isn't complete
-                        if (subject == null)
+                    case Commands.Drop:
+                        foreach (Item item in Player.Inventory)
                         {
-                            outputString = "You don't have that item";
-                        }
-                        else
-                        {
-                            outputString = "Dropped";
+                            if (string.Compare(item.Name, subject, ignoreCase: true) != 0)
+                            {
+                                outputString = "You aren't carrying this item.";
+                            }
+                            else
+                            {
+                                itemToDrop = item;
+                                Player.CurrentRoom.Inventory.Add(itemToDrop);
+                                Player.Inventory.Remove(itemToDrop);
+                                outputString = "Dropped";
+                                break;
+                            }
                         }
                         break;
 
@@ -135,7 +143,7 @@ namespace Zork
                             outputString = "You are carring\n ";
                             foreach (Item item in Player.Inventory)
                             {
-                                outputString += $"{item.InventoryDescription}\n";
+                                outputString += $"{item.InventoryDescription}\n ";
                             }
                         }
                         break;

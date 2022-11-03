@@ -35,13 +35,6 @@ namespace Zork
             return didMove;
         }
 
-        //public bool CanTakeItem(Item itemToTake)
-        //{
-        //    bool TakeItem = _currentRoom.RoomInventory.Find(itemToTake);
-        //}
-
-        //May need to add an itemsbyname dictionary for the player's inventory
-
         private World _world;
         private Room _currentRoom;
 

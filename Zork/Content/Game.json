@@ -5,7 +5,7 @@
       {
         "Name": "Mat",
         "LookDescription": "A rubber mat with the words 'Welcome to Zork!' written on it.",
-        "InventoryDescription":  "A Welcome Mat"
+        "InventoryDescription": "A Welcome Mat"
       },
       {
         "Name": "Mailbox",
@@ -16,6 +16,41 @@
         "Name": "Leaves",
         "LookDescription": "A pile of leaves lie here.",
         "InventoryDescription": "Leaves"
+      },
+      {
+        "Name": "Plank",
+        "LookDescription": "A plank of wood lies below the window.",
+        "InventoryDescription": "A Plank of Wood"
+      },
+      {
+        "Name": "Compass",
+        "LookDescription": "A broken compass, always facing north, lies on the ground",
+        "InventoryDescription": "A Broken Compass."
+      },
+      {
+        "Name": "Hammer",
+        "LookDescription": "A hammer rests below the window.",
+        "InventoryDescription": "A Hammer"
+      },
+      {
+        "Name": "Nails",
+        "LookDescription": "Some nails are scattered around the hammer.",
+        "InventoryDescription": "Nails"
+      },
+      {
+        "Name": "Apple",
+        "LookDescription": "A single apple lies on the ground.",
+        "InventoryDescription": "An Apple"
+      },
+      {
+        "Name": "Scroll",
+        "LookDescription": "A dirty scroll tied up with some string lies on the ground",
+        "InventoryDescription": "A Dirty Scroll"
+      },
+      {
+        "Name": "Sword",
+        "LookDescription": "A shining sword peacefully rests on the ground.",
+        "InventoryDescription": "A Shining Sword"
       }
     ],
     "Rooms": [
@@ -34,12 +69,15 @@
       },
       {
         "Name": "North of House",
-        "Description": "You are facing thhe north side of a white house. There is no door here, and all the windows are barred.",
+        "Description": "You are facing the north side of a white house. There is no door here, and all the windows are barred.",
         "NeighborNames": {
           "North": "Forest 2",
           "East": "Behind House",
           "West": "West of House"
-        }
+        },
+        "InventoryNames": [
+          "Plank"
+        ]
       },
       {
         "Name": "South of House",
@@ -47,7 +85,10 @@
         "NeighborNames": {
           "East": "Behind House",
           "West": "West of House"
-        }
+        },
+        "InventoryNames": [
+          "Compass"
+        ]
       },
       {
         "Name": "Behind House",
@@ -56,7 +97,11 @@
           "North": "North of House",
           "East": "Clearing",
           "West": "South of House"
-        }
+        },
+        "InventoryNames": [
+          "Hammer",
+          "Nails"
+        ]
       },
       {
         "Name": "Forest 1",
@@ -65,7 +110,10 @@
         "NeighborNames": {
           "South": "Forest 3",
           "East": "West of House"
-        }
+        },
+        "InventoryNames": [
+          "Apple"
+        ]
       },
       {
         "Name": "Forest 2",
@@ -73,7 +121,10 @@
         "NeighborNames": {
           "South": "Clearing",
           "East": "Clearing"
-        }
+        },
+        "InventoryNames": [
+          "Scroll"
+        ]
       },
       {
         "Name": "Forest 3",
@@ -81,7 +132,10 @@
         "NeighborNames": {
           "North": "South of House",
           "East": "Clearing"
-        }
+        },
+        "InventoryNames": [
+          "Sword"
+        ]
       },
       {
         "Name": "Clearing",
