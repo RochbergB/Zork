@@ -103,6 +103,7 @@ namespace Zork
                             if (string.Compare(item.Name, subject, ignoreCase: true) != 0)
                             {
                                 outputString = "What are you trying to take?";
+                                break;
                             }
                             else
                             {
@@ -121,6 +122,7 @@ namespace Zork
                             if (string.Compare(item.Name, subject, ignoreCase: true) != 0)
                             {
                                 outputString = "You aren't carrying this item.";
+                                break;
                             }
                             else
                             {
