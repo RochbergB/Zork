@@ -1,4 +1,4 @@
-﻿namespace Zork
+﻿namespace Zork.Common
 {
     public class Item
     {
@@ -14,6 +14,7 @@
             LookDescription = lookDescription;
             InventoryDescription = inventoryDescription;
         }
+
         public override string ToString() => Name;
     }
 }

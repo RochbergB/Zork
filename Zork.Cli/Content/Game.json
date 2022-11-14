@@ -4,53 +4,18 @@
     "Items": [
       {
         "Name": "Mat",
-        "LookDescription": "A rubber mat with the words 'Welcome to Zork!' written on it.",
-        "InventoryDescription": "A Welcome Mat"
+        "LookDescription": "A rubber mat saying 'Welcome to Zork!' lies here.",
+        "InventoryDescription": "A welcome mat."
       },
       {
         "Name": "Mailbox",
-        "LookDescription": "A small mailbox with a leaflet stands infront of the house.",
-        "InventoryDescription": "A Mailbox"
+        "LookDescription": "There is a small mailbox here.",
+        "InventoryDescription": "A small mailbox."
       },
       {
         "Name": "Leaves",
-        "LookDescription": "A pile of leaves lie here.",
-        "InventoryDescription": "Leaves"
-      },
-      {
-        "Name": "Plank",
-        "LookDescription": "A plank of wood lies below the window.",
-        "InventoryDescription": "A Plank of Wood"
-      },
-      {
-        "Name": "Compass",
-        "LookDescription": "A broken compass, always facing north, lies on the ground",
-        "InventoryDescription": "A Broken Compass."
-      },
-      {
-        "Name": "Hammer",
-        "LookDescription": "A hammer rests below the window.",
-        "InventoryDescription": "A Hammer"
-      },
-      {
-        "Name": "Nails",
-        "LookDescription": "Some nails are scattered around the hammer.",
-        "InventoryDescription": "Nails"
-      },
-      {
-        "Name": "Apple",
-        "LookDescription": "A single apple lies on the ground.",
-        "InventoryDescription": "An Apple"
-      },
-      {
-        "Name": "Scroll",
-        "LookDescription": "A dirty scroll tied up with some string lies on the ground",
-        "InventoryDescription": "A Dirty Scroll"
-      },
-      {
-        "Name": "Sword",
-        "LookDescription": "A shining sword peacefully rests on the ground.",
-        "InventoryDescription": "A Shining Sword"
+        "LookDescription": "There is a pile of leaves here.",
+        "InventoryDescription": "A pile of leaves."
       }
     ],
     "Rooms": [
@@ -74,10 +39,7 @@
           "North": "Forest 2",
           "East": "Behind House",
           "West": "West of House"
-        },
-        "InventoryNames": [
-          "Plank"
-        ]
+        }
       },
       {
         "Name": "South of House",
@@ -85,10 +47,7 @@
         "NeighborNames": {
           "East": "Behind House",
           "West": "West of House"
-        },
-        "InventoryNames": [
-          "Compass"
-        ]
+        }
       },
       {
         "Name": "Behind House",
@@ -96,24 +55,17 @@
         "NeighborNames": {
           "North": "North of House",
           "East": "Clearing",
-          "West": "South of House"
-        },
-        "InventoryNames": [
-          "Hammer",
-          "Nails"
-        ]
+          "South": "South of House"
+        }
       },
       {
         "Name": "Forest 1",
-        "LookName": "Forst",
+        "LookName": "Forest",
         "Description": "This is a forest, with trees in all directions around you.",
         "NeighborNames": {
           "South": "Forest 3",
           "East": "West of House"
-        },
-        "InventoryNames": [
-          "Apple"
-        ]
+        }
       },
       {
         "Name": "Forest 2",
@@ -121,10 +73,7 @@
         "NeighborNames": {
           "South": "Clearing",
           "East": "Clearing"
-        },
-        "InventoryNames": [
-          "Scroll"
-        ]
+        }
       },
       {
         "Name": "Forest 3",
@@ -132,10 +81,7 @@
         "NeighborNames": {
           "North": "South of House",
           "East": "Clearing"
-        },
-        "InventoryNames": [
-          "Sword"
-        ]
+        }
       },
       {
         "Name": "Clearing",
@@ -144,7 +90,7 @@
           "West": "Forest 2",
           "South": "Forest 3"
         },
-        "InventoryNames": [
+        "IventoryNames": [
           "Leaves"
         ]
       }
