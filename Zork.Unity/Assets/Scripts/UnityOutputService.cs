@@ -1,26 +1,35 @@
 using UnityEngine;
 using Zork.Common;
 using TMPro;
+using UnityEngine.UI;
+using System.Collections.Generic;
+using JetBrains.Annotations;
 
 public class UnityOutputService : MonoBehaviour, IOutputService
 {
-    public void Write(object obj)
-    {
+    [SerializeField]
+    private TextMeshProUGUI TextLinePrefab;
 
+    [SerializeField]
+    private Image NewLinePrefab;
+
+    [SerializeField]
+    private Transform ContentTransform;
+
+    public void Write(object obj) => ParseAndWriteLine(obj.ToString());
+
+    public void Write(string message) => ParseAndWriteLine(message);
+
+    public void WriteLine(object obj) => ParseAndWriteLine(obj.ToString());
+
+    public void WriteLine(string message) => ParseAndWriteLine(message);
+
+    private void ParseAndWriteLine(string message)
+    {
+        var textLine = Instantiate(TextLinePrefab, ContentTransform);
+        textLine.text = message;
+        _entries.Add(textLine.gameObject);
     }
 
-    public void Write(string message)
-    {
-
-    }
-
-    public void WriteLine(object obj)
-    {
-
-    }
-
-    public void WriteLine(string message)
-    {
-
-    }
+    private List<GameObject> _entries = new List<GameObject>();
 }
