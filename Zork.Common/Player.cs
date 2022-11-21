@@ -6,10 +6,11 @@ namespace Zork.Common
     public class Player
     {
         public event EventHandler<Room> LocationChanged;
+        public event EventHandler<int> MovesChanged;
+        public event EventHandler<int> ScoreChanged;
 
-        //public event EventHandler MovesChanged;
-
-        public uint Moves;
+        public int Moves;
+        public int Score;
 
         public Room CurrentRoom
         {
@@ -44,10 +45,8 @@ namespace Zork.Common
             if (didMove)
             {
                 CurrentRoom = neighbor;
-
+                MovesChanged?.Invoke(this, Moves);
             }
-
-            //MovesChanged?.Invoke(Moves);
             
             return didMove;
 

@@ -35,9 +35,7 @@ namespace Zork.Common
             Input.InputReceived += OnInputReceived;
             Output.WriteLine("Welcome to Zork!");
             Look();
-            //Output.WriteLine($"\n{Player.Moves}");
-            Output.WriteLine($"\n{Player.CurrentRoom}");
-
+            Output.WriteLine($"\n{Player.CurrentRoom}\n{Player.Moves}");
         }
 
         public void OnInputReceived(object sender, string inputString)
@@ -125,6 +123,12 @@ namespace Zork.Common
                     }
                     break;
 
+                case Commands.Reward:
+                    Player.Score++;
+                    Output.WriteLine($"{Player.Score}");
+                    
+                    break;
+
                 default:
                     Output.WriteLine("Unknown command.");
                     break;
@@ -135,8 +139,7 @@ namespace Zork.Common
                 Look();
             }
 
-            //Output.WriteLine($"\n{Player.Moves}");
-            Output.WriteLine($"\n{Player.CurrentRoom}");
+            Output.WriteLine($"\n{Player.CurrentRoom}\n{Player.Moves}");
 
         }
         

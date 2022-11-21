@@ -10,6 +10,8 @@ public class UnityInputService : MonoBehaviour, IInputService
 
     public event EventHandler<string> InputReceived;
 
+    
+
     public void ProcessInput()
     {
         if (string.IsNullOrWhiteSpace(InputField.text) == false)

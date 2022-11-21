@@ -7,6 +7,8 @@ namespace Zork.Cli
     {
         public event EventHandler<string> InputReceived;
 
+        
+
         public void ProcessInput()
         {
             string inputString = Console.ReadLine();
