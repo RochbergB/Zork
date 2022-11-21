@@ -35,7 +35,9 @@ namespace Zork.Common
             Input.InputReceived += OnInputReceived;
             Output.WriteLine("Welcome to Zork!");
             Look();
+            //Output.WriteLine($"\n{Player.Moves}");
             Output.WriteLine($"\n{Player.CurrentRoom}");
+
         }
 
         public void OnInputReceived(object sender, string inputString)
@@ -70,6 +72,7 @@ namespace Zork.Common
 
                 case Commands.Look:
                     Look();
+                    Player.Moves++;
                     break;
 
                 case Commands.North:
@@ -78,6 +81,7 @@ namespace Zork.Common
                 case Commands.West:
                     Directions direction = (Directions)command;
                     Output.WriteLine(Player.Move(direction) ? $"You moved {direction}." : "The way is shut!");
+                    Player.Moves++;
                     break;
 
                 case Commands.Take:
@@ -88,6 +92,7 @@ namespace Zork.Common
                     else
                     {
                         Take(subject);
+                        Player.Moves++;
                     }
                     break;
 
@@ -99,6 +104,7 @@ namespace Zork.Common
                     else
                     {
                         Drop(subject);
+                        Player.Moves++;
                     }
                     break;
 
@@ -106,6 +112,7 @@ namespace Zork.Common
                     if (Player.Inventory.Count() == 0)
                     {
                         Console.WriteLine("You are empty handed.");
+                        Player.Moves++;
                     }
                     else
                     {
@@ -113,6 +120,7 @@ namespace Zork.Common
                         foreach (Item item in Player.Inventory)
                         {
                             Output.WriteLine(item.InventoryDescription);
+                            Player.Moves++;
                         }
                     }
                     break;
@@ -127,7 +135,9 @@ namespace Zork.Common
                 Look();
             }
 
+            //Output.WriteLine($"\n{Player.Moves}");
             Output.WriteLine($"\n{Player.CurrentRoom}");
+
         }
         
         private void Look()

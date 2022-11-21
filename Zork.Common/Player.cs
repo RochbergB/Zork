@@ -6,6 +6,11 @@ namespace Zork.Common
     public class Player
     {
         public event EventHandler<Room> LocationChanged;
+
+        //public event EventHandler MovesChanged;
+
+        public uint Moves;
+
         public Room CurrentRoom
         {
             get => _currentRoom;
@@ -39,9 +44,13 @@ namespace Zork.Common
             if (didMove)
             {
                 CurrentRoom = neighbor;
+
             }
 
+            //MovesChanged?.Invoke(Moves);
+            
             return didMove;
+
         }
 
         public void AddItemToInventory(Item itemToAdd)
