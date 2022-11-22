@@ -35,7 +35,8 @@ namespace Zork.Common
             Input.InputReceived += OnInputReceived;
             Output.WriteLine("Welcome to Zork!");
             Look();
-            Output.WriteLine($"\n{Player.CurrentRoom}\n{Player.Moves}");
+            Output.WriteLine($"\n{Player.CurrentRoom}");
+            Output.WriteLine($"\n{Player.Moves}");
         }
 
         public void OnInputReceived(object sender, string inputString)
@@ -70,7 +71,7 @@ namespace Zork.Common
 
                 case Commands.Look:
                     Look();
-                    Player.Moves++;
+                    Player.AddMoves();
                     break;
 
                 case Commands.North:
@@ -79,7 +80,7 @@ namespace Zork.Common
                 case Commands.West:
                     Directions direction = (Directions)command;
                     Output.WriteLine(Player.Move(direction) ? $"You moved {direction}." : "The way is shut!");
-                    Player.Moves++;
+                    Player.AddMoves();
                     break;
 
                 case Commands.Take:
@@ -90,7 +91,7 @@ namespace Zork.Common
                     else
                     {
                         Take(subject);
-                        Player.Moves++;
+                        Player.AddMoves();
                     }
                     break;
 
@@ -102,31 +103,31 @@ namespace Zork.Common
                     else
                     {
                         Drop(subject);
-                        Player.Moves++;
+                        Player.AddMoves();
                     }
                     break;
 
                 case Commands.Inventory:
                     if (Player.Inventory.Count() == 0)
                     {
-                        Console.WriteLine("You are empty handed.");
-                        Player.Moves++;
+                        Output.WriteLine("You are empty handed.");
+                        Player.AddMoves();
                     }
                     else
                     {
-                        Console.WriteLine("You are carrying:");
+                        Output.WriteLine("You are carrying:");
                         foreach (Item item in Player.Inventory)
                         {
                             Output.WriteLine(item.InventoryDescription);
-                            Player.Moves++;
+                            Player.AddMoves();
                         }
                     }
                     break;
 
                 case Commands.Reward:
-                    Player.Score++;
+                    Player.AddScore();
+                    Output.WriteLine("You have been awarded 1 point!");
                     Output.WriteLine($"{Player.Score}");
-                    
                     break;
 
                 default:
@@ -139,8 +140,8 @@ namespace Zork.Common
                 Look();
             }
 
-            Output.WriteLine($"\n{Player.CurrentRoom}\n{Player.Moves}");
-
+            Output.WriteLine($"\n{Player.CurrentRoom}");
+            Output.WriteLine($"\n{Player.Moves}");
         }
         
         private void Look()

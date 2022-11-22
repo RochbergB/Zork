@@ -45,11 +45,9 @@ namespace Zork.Common
             if (didMove)
             {
                 CurrentRoom = neighbor;
-                MovesChanged?.Invoke(this, Moves);
             }
             
             return didMove;
-
         }
 
         public void AddItemToInventory(Item itemToAdd)
@@ -68,6 +66,18 @@ namespace Zork.Common
             {
                 throw new Exception("Could not remove item from inventory.");
             }
+        }
+
+        public void AddMoves()
+        {
+            Moves++;
+            MovesChanged?.Invoke(this, Moves);
+        }
+
+        public void AddScore()
+        {
+            Score++;
+            ScoreChanged?.Invoke(this, Score);
         }
 
         private readonly World _world;
