@@ -36,7 +36,6 @@ namespace Zork.Common
             Output.WriteLine("Welcome to Zork!");
             Look();
             Output.WriteLine($"\n{Player.CurrentRoom}");
-            Output.WriteLine($"\n{Player.Moves}");
         }
 
         public void OnInputReceived(object sender, string inputString)
@@ -126,8 +125,7 @@ namespace Zork.Common
 
                 case Commands.Reward:
                     Player.AddScore();
-                    Output.WriteLine("You have been awarded 1 point!");
-                    Output.WriteLine($"{Player.Score}");
+                    Output.WriteLine($"You now have " + Player.Score + " Points!");
                     break;
 
                 default:
@@ -141,7 +139,7 @@ namespace Zork.Common
             }
 
             Output.WriteLine($"\n{Player.CurrentRoom}");
-            Output.WriteLine($"\n{Player.Moves}");
+            Output.WriteLine($"You have moved " + Player.Moves + " times.");
         }
         
         private void Look()
@@ -150,6 +148,10 @@ namespace Zork.Common
             foreach (Item item in Player.CurrentRoom.Inventory)
             {
                 Output.WriteLine(item.LookDescription);
+            }
+            foreach (Enemy enemy in Player.CurrentRoom.Enemies)
+            {
+                Output.WriteLine(enemy.Description);
             }
         }
 
