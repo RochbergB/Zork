@@ -23,13 +23,13 @@ namespace Zork.Common
         [JsonProperty]
         private string[] InventoryNames { get; set; }
 
-        [JsonIgnore]
-        public IEnumerable<Enemy> Enemies => _enemies;
+        //[JsonIgnore]
+        //public IEnumerable<Enemy> Enemies => _enemies;
 
-        [JsonProperty]
-        private string[] EnemyNames { get; set; }
+        //[JsonProperty]
+        //private string[] EnemyNames { get; set; }
 
-        public Room(string name, string description, Dictionary<Directions, string> neighborNames, string[] inventoryNames, string[] enemyNames)
+        public Room(string name, string description, Dictionary<Directions, string> neighborNames, string[] inventoryNames)//, string[] enemyNames
         {
             Name = name;
             Description = description;
@@ -39,8 +39,8 @@ namespace Zork.Common
             InventoryNames = inventoryNames ?? new string[0];
             _inventory = new List<Item>();
 
-            EnemyNames = enemyNames ?? new string[0];
-            _enemies = new List<Enemy>();
+            //EnemyNames = enemyNames ?? new string[0];
+            //_enemies = new List<Enemy>();
         }
 
         public static bool operator ==(Room lhs, Room rhs)
@@ -84,15 +84,15 @@ namespace Zork.Common
             InventoryNames = null;
         }
 
-        public void UpdateEnemies(World world)
-        {
-            foreach (var enemyName in EnemyNames)
-            {
-                _enemies.Add(world.EnemiesByName[enemyName]);
-            }
+        //public void UpdateEnemies(World world)
+        //{
+        //    foreach (var enemyName in EnemyNames)
+        //    {
+        //        _enemies.Add(world.EnemiesByName[enemyName]);
+        //    }
 
-            EnemyNames = null;
-        }
+        //    EnemyNames = null;
+        //}
 
         public void AddItemToInventory(Item itemToAdd)
         {
@@ -115,7 +115,7 @@ namespace Zork.Common
         public override string ToString() => Name;
 
         private readonly List<Item> _inventory;
-        private readonly List<Enemy> _enemies;
+        //private readonly List<Enemy> _enemies;
         private readonly Dictionary<Directions, Room> _neighbors;
     }
 }

@@ -149,10 +149,10 @@ namespace Zork.Common
             {
                 Output.WriteLine(item.LookDescription);
             }
-            foreach (Enemy enemy in Player.CurrentRoom.Enemies)
-            {
-                Output.WriteLine(enemy.Description);
-            }
+            //foreach (Enemy enemy in Player.CurrentRoom.Enemies)
+            //{
+            //    Output.WriteLine(enemy.Description);
+            //}
         }
 
         private void Take(string itemName)

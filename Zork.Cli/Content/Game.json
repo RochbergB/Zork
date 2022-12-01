@@ -18,12 +18,12 @@
         "InventoryDescription": "A pile of leaves."
       }
     ],
-    "Enemies": [
-      {
-        "Name": "Goblin",
-        "Description": "A goblin has appeared and wants to fight you."
-      }
-    ],
+    //"Enemies": [
+    //  {
+    //    "Name": "Goblin",
+    //    "Description": "A goblin has appeared and wants to fight you."
+    //  }
+    //],
     "Rooms": [
       {
         "Name": "West of House",
@@ -53,10 +53,10 @@
         "NeighborNames": {
           "East": "Behind House",
           "West": "West of House"
-        },
-        "EnemyNames": [
-          "Goblin"
-        ]
+        }
+        //"EnemyNames": [
+        //  "Goblin"
+        //]
       },
       {
         "Name": "Behind House",
