@@ -5,25 +5,36 @@
       {
         "Name": "Mat",
         "LookDescription": "A rubber mat saying 'Welcome to Zork!' lies here.",
-        "InventoryDescription": "A welcome mat."
+        "InventoryDescription": "A welcome mat.",
+        "Damage": 0
       },
       {
         "Name": "Mailbox",
         "LookDescription": "There is a small mailbox here.",
-        "InventoryDescription": "A small mailbox."
+        "InventoryDescription": "A small mailbox.",
+        "Damage": 0
       },
       {
         "Name": "Leaves",
         "LookDescription": "There is a pile of leaves here.",
-        "InventoryDescription": "A pile of leaves."
+        "InventoryDescription": "A pile of leaves.",
+        "Damage": 0
+      },
+      {
+        "Name": "Sword",
+        "LookDescription": "A shining sword lies on the ground here.",
+        "InventoryDescription": "A sword",
+        "Damage": 3
       }
     ],
-    //"Enemies": [
-    //  {
-    //    "Name": "Goblin",
-    //    "Description": "A goblin has appeared and wants to fight you."
-    //  }
-    //],
+    "Enemies": [
+      {
+        "Name": "Goblin",
+        "Description": "A goblin has appeared and wants to fight you.",
+        "Health": 5,
+        "Damage": 1
+      }
+    ],
     "Rooms": [
       {
         "Name": "West of House",
@@ -35,7 +46,8 @@
         },
         "InventoryNames": [
           "Mat",
-          "Mailbox"
+          "Mailbox",
+          "Sword"
         ]
       },
       {
@@ -53,10 +65,10 @@
         "NeighborNames": {
           "East": "Behind House",
           "West": "West of House"
-        }
-        //"EnemyNames": [
-        //  "Goblin"
-        //]
+        },
+        "EnemyNames": [
+          "Goblin"
+        ]
       },
       {
         "Name": "Behind House",

@@ -1,17 +1,23 @@
-﻿//namespace Zork.Common
-//{
-//    public class Enemy
-//    {
-//        public string Name { get; }
+﻿namespace Zork.Common
+{
+    public class Enemy
+    {
+        public string Name { get; }
 
-//        public string Description { get; }
+        public string Description { get; }
 
-//        public Enemy(string name, string description)
-//        {
-//            Name = name;
-//            Description = description;
-//        }
+        public int Health { get; set; }
 
-//        public override string ToString() => Name;
-//    }
-//}
+        public int Damage { get; }
+
+        public Enemy(string name, string description, int health, int damage)
+        {
+            Name = name;
+            Description = description;
+            Health = health;
+            Damage = damage;
+        }
+
+        public override string ToString() => Name;
+    }
+}

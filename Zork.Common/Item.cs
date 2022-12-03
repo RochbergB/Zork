@@ -8,11 +8,14 @@
 
         public string InventoryDescription { get; }
 
-        public Item(string name, string lookDescription, string inventoryDescription)
+        public int Damage { get; }
+
+        public Item(string name, string lookDescription, string inventoryDescription, int damage)
         {
             Name = name;
             LookDescription = lookDescription;
             InventoryDescription = inventoryDescription;
+            Damage = damage;
         }
 
         public override string ToString() => Name;

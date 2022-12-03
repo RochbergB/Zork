@@ -12,6 +12,9 @@ namespace Zork.Common
         public Player Player { get; }
 
         [JsonIgnore]
+        public Enemy Enemy { get; }
+
+        [JsonIgnore]
         public IInputService Input { get; private set; }
 
         [JsonIgnore]
@@ -45,6 +48,9 @@ namespace Zork.Common
 
             string verb;
             string subject = null;
+            string with = null;
+            string weapon = null;
+
             if (commandTokens.Length == 0)
             {
                 return;
@@ -53,10 +59,22 @@ namespace Zork.Common
             {
                 verb = commandTokens[0];
             }
+            else if (commandTokens.Length == 2)
+            {
+                verb = commandTokens[0];
+                subject = commandTokens[1];
+            }
+            else if (commandTokens.Length == 3)
+            {
+                Output.WriteLine("Invalid Command");
+                return;
+            }
             else
             {
                 verb = commandTokens[0];
                 subject = commandTokens[1];
+                with = commandTokens[2];
+                weapon = commandTokens[3];
             }
 
             Room previousRoom = Player.CurrentRoom;
@@ -128,6 +146,22 @@ namespace Zork.Common
                     Output.WriteLine($"You now have " + Player.Score + " Points!");
                     break;
 
+                case Commands.Attack:
+                    if (Player.CurrentRoom.Enemies.Count() > 0)
+                    {
+                        if (string.Compare(with, "With", ignoreCase: true) == 0)
+                        {
+                            Attack(weapon, subject);
+                            Player.AddMoves();
+                        }
+                    }
+                    else
+                    {
+                        Output.WriteLine("There are no enemies here.");
+                        Player.AddMoves();
+                    }
+                    break;
+
                 default:
                     Output.WriteLine("Unknown command.");
                     break;
@@ -149,10 +183,10 @@ namespace Zork.Common
             {
                 Output.WriteLine(item.LookDescription);
             }
-            //foreach (Enemy enemy in Player.CurrentRoom.Enemies)
-            //{
-            //    Output.WriteLine(enemy.Description);
-            //}
+            foreach (Enemy enemy in Player.CurrentRoom.Enemies)
+            {
+                Output.WriteLine(enemy.Description);
+            }
         }
 
         private void Take(string itemName)
@@ -160,13 +194,55 @@ namespace Zork.Common
             Item itemToTake = Player.CurrentRoom.Inventory.FirstOrDefault(item => string.Compare(item.Name, itemName, ignoreCase: true) == 0);
             if (itemToTake == null)
             {
-                Console.WriteLine("You can't see any such thing.");                
+                Output.WriteLine("You can't see any such thing.");                
             }
             else
             {
                 Player.AddItemToInventory(itemToTake);
                 Player.CurrentRoom.RemoveItemFromInventory(itemToTake);
-                Console.WriteLine("Taken.");
+                Output.WriteLine("Taken.");
+            }
+        }
+
+        private void Attack(string itemName, string enemyName)
+        {
+            Item itemToAttack = Player.Inventory.FirstOrDefault(item => string.Compare(item.Name, itemName, ignoreCase: true) == 0);
+            Enemy enemyToAttack = Player.CurrentRoom.Enemies.FirstOrDefault(enemy => string.Compare(enemy.Name, enemyName, ignoreCase: true) == 0);
+
+            if (itemToAttack == null)
+            {
+                Output.WriteLine("You can't see any such thing.");
+            }
+            else
+            {
+
+                if (itemToAttack.Damage == 0)
+                {
+                    Output.WriteLine("This item can't damage enemies");
+                }
+                else
+                {
+
+                    if (enemyToAttack == null)
+                    {
+                        
+                        Output.WriteLine("There is no such enemy");
+                    }
+                    else
+                    {
+                        enemyToAttack.Health -= itemToAttack.Damage;
+                        Output.WriteLine($"You attack the {enemyToAttack.Name} with a {itemToAttack.Name}");
+
+                        if (enemyToAttack.Health <= 0)
+                        {
+                            Player.CurrentRoom.RemoveEnemyFromRoom(enemyToAttack);
+                            Output.WriteLine($"The {enemyToAttack.Name} has been defeated!");
+                            return;
+                            //Remove enemy from room
+                            //Add enemy's dropped enemy to current room (Remove item from Enemy's inventory, Add it to current room's inventory"
+                        }
+                    }
+                }
             }
         }
 
@@ -175,13 +251,13 @@ namespace Zork.Common
             Item itemToDrop = Player.Inventory.FirstOrDefault(item => string.Compare(item.Name, itemName, ignoreCase: true) == 0);
             if (itemToDrop == null)
             {
-                Console.WriteLine("You can't see any such thing.");                
+                Output.WriteLine("You can't see any such thing.");                
             }
             else
             {
                 Player.CurrentRoom.AddItemToInventory(itemToDrop);
                 Player.RemoveItemFromInventory(itemToDrop);
-                Console.WriteLine("Dropped.");
+                Output.WriteLine("Dropped.");
             }
         }
 
