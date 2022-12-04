@@ -149,10 +149,31 @@ namespace Zork.Common
                 case Commands.Attack:
                     if (Player.CurrentRoom.Enemies.Count() > 0)
                     {
-                        if (string.Compare(with, "With", ignoreCase: true) == 0)
+                        if (string.IsNullOrEmpty(subject))
                         {
-                            Attack(weapon, subject);
-                            Player.AddMoves();
+                            Output.WriteLine("What are you trying to attack?");
+                            return;
+                        }
+                        else
+                        {
+                            if (string.IsNullOrEmpty(weapon))
+                            {
+                                Output.WriteLine("What are you using to attack?");
+                                return;
+                            }
+                            else
+                            {
+                                if (string.Compare(with, "With", ignoreCase: true) != 0)
+                                {
+                                    Output.WriteLine("Attacking how?");
+                                    return;
+                                }
+                                else
+                                {
+                                    Attack(weapon, subject);
+                                    Player.AddMoves();
+                                }
+                            }
                         }
                     }
                     else
@@ -218,7 +239,7 @@ namespace Zork.Common
 
                 if (itemToAttack.Damage == 0)
                 {
-                    Output.WriteLine("This item can't damage enemies");
+                    Output.WriteLine("This item can't damage enemies.");
                 }
                 else
                 {
@@ -226,19 +247,18 @@ namespace Zork.Common
                     if (enemyToAttack == null)
                     {
                         
-                        Output.WriteLine("There is no such enemy");
+                        Output.WriteLine("There is no such enemy.");
                     }
                     else
                     {
                         enemyToAttack.Health -= itemToAttack.Damage;
-                        Output.WriteLine($"You attack the {enemyToAttack.Name} with a {itemToAttack.Name}");
+                        Output.WriteLine($"You attacked the {enemyToAttack.Name} with a {itemToAttack.Name}.");
 
                         if (enemyToAttack.Health <= 0)
                         {
                             Player.CurrentRoom.RemoveEnemyFromRoom(enemyToAttack);
                             Output.WriteLine($"The {enemyToAttack.Name} has been defeated!");
                             return;
-                            //Remove enemy from room
                             //Add enemy's dropped enemy to current room (Remove item from Enemy's inventory, Add it to current room's inventory"
                         }
                     }
