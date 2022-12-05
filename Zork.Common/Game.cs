@@ -260,12 +260,16 @@ namespace Zork.Common
                             Output.WriteLine($"The {enemyToAttack.Name} has been defeated!");
 
                             
-                            if (enemyToAttack.EInventory.Count() > 0)
-                            {
-                                Item enemyItemToDrop = enemyToAttack.EInventory.First();
-                                enemyToAttack.RemoveEnemyItemFromInventory(enemyItemToDrop);
-                                Player.CurrentRoom.AddItemToInventory(enemyItemToDrop);
-                            }
+                            //if (enemyToAttack.EInventory.Count() > 0)
+                            //{
+                            //    foreach (Item item in enemyToAttack.EInventory)
+                            //    {
+                            //        Item enemyItemToDrop = enemyToAttack.EInventory.First();
+                            //        enemyToAttack.RemoveEnemyItemFromInventory(enemyItemToDrop);
+                            //        Player.CurrentRoom.AddItemToInventory(enemyItemToDrop);
+                            //    }
+                                
+                            //}
                             //Add enemy's dropped enemy to current room (Remove item from Enemy's inventory, Add it to current room's inventory"
                         }
                     }
