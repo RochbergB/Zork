@@ -25,6 +25,12 @@
         "LookDescription": "A shining sword lies on the ground here.",
         "InventoryDescription": "A sword",
         "Damage": 3
+      },
+      {
+        "Name": "Apple",
+        "LookDescription": "The defeated goblin dropped an apple.",
+        "InventoryDescription": "An apple",
+        "Damage": 0
       }
     ],
     "Enemies": [
@@ -32,7 +38,10 @@
         "Name": "Goblin",
         "Description": "A goblin has appeared and wants to fight you.",
         "Health": 5,
-        "Damage": 1
+        "Damage": 1,
+        "EnemyInventoryNames": [
+          "Apple"
+        ]
       }
     ],
     "Rooms": [

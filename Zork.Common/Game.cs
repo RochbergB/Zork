@@ -258,7 +258,14 @@ namespace Zork.Common
                         {
                             Player.CurrentRoom.RemoveEnemyFromRoom(enemyToAttack);
                             Output.WriteLine($"The {enemyToAttack.Name} has been defeated!");
-                            return;
+
+                            
+                            if (enemyToAttack.EInventory.Count() > 0)
+                            {
+                                Item enemyItemToDrop = enemyToAttack.EInventory.First();
+                                enemyToAttack.RemoveEnemyItemFromInventory(enemyItemToDrop);
+                                Player.CurrentRoom.AddItemToInventory(enemyItemToDrop);
+                            }
                             //Add enemy's dropped enemy to current room (Remove item from Enemy's inventory, Add it to current room's inventory"
                         }
                     }
@@ -280,6 +287,8 @@ namespace Zork.Common
                 Output.WriteLine("Dropped.");
             }
         }
+
+        
 
         private static Commands ToCommand(string commandString) => Enum.TryParse(commandString, true, out Commands result) ? result : Commands.Unknown;
     }
