@@ -10,12 +10,15 @@
 
         public int Damage { get; }
 
-        public Item(string name, string lookDescription, string inventoryDescription, int damage)
+        public int Heal { get; }
+
+        public Item(string name, string lookDescription, string inventoryDescription, int damage, int heal)
         {
             Name = name;
             LookDescription = lookDescription;
             InventoryDescription = inventoryDescription;
             Damage = damage;
+            Heal = heal;
         }
 
         public override string ToString() => Name;

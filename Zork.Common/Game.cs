@@ -124,6 +124,18 @@ namespace Zork.Common
                     }
                     break;
 
+                case Commands.Eat:
+                    if (string.IsNullOrEmpty(subject))
+                    {
+                        Output.WriteLine("This command requires a subject.");
+                    }
+                    else
+                    {
+                        Eat(subject);
+                        Player.AddMoves();
+                    }
+                    break;
+
                 case Commands.Inventory:
                     if (Player.Inventory.Count() == 0)
                     {
@@ -225,6 +237,29 @@ namespace Zork.Common
             }
         }
 
+        private void Eat(string itemName)
+        {
+            Item itemToEat = Player.Inventory.FirstOrDefault(item => string.Compare(item.Name, itemName, ignoreCase: true) == 0);
+            if (itemToEat == null)
+            {
+                Output.WriteLine("You can't see any such thing.");
+            }
+            else
+            {
+                if (itemToEat.Heal <= 0)
+                {
+                    Output.WriteLine("You can't eat this item.");
+                }
+                else
+                {
+                    Player.Health += itemToEat.Heal;
+                    Output.WriteLine($"Eating the {itemToEat.Name} gave you {itemToEat.Heal} Health! You now have {Player.Health} Health.");
+                    Player.RemoveItemFromInventory(itemToEat);
+                    Output.WriteLine("Eaten.");
+                }
+            }
+        }
+
         private void Attack(string itemName, string enemyName)
         {
             Item itemToAttack = Player.Inventory.FirstOrDefault(item => string.Compare(item.Name, itemName, ignoreCase: true) == 0);
@@ -254,12 +289,12 @@ namespace Zork.Common
                         enemyToAttack.Health -= itemToAttack.Damage;
                         Output.WriteLine($"You attacked the {enemyToAttack.Name} with a {itemToAttack.Name}.");
 
-                        if (enemyToAttack.Health <= 0)
+                        if (enemyToAttack.Health > 0)
                         {
-                            Player.CurrentRoom.RemoveEnemyFromRoom(enemyToAttack);
-                            Output.WriteLine($"The {enemyToAttack.Name} has been defeated!");
+                            Player.Health -= enemyToAttack.Damage;
+                            Player.MinusHealth();
+                            Output.WriteLine($"The {enemyToAttack.Name} scratched you. You now have {Player.Health} Health.");
 
-                            
                             //if (enemyToAttack.EInventory.Count() > 0)
                             //{
                             //    foreach (Item item in enemyToAttack.EInventory)
@@ -268,9 +303,14 @@ namespace Zork.Common
                             //        enemyToAttack.RemoveEnemyItemFromInventory(enemyItemToDrop);
                             //        Player.CurrentRoom.AddItemToInventory(enemyItemToDrop);
                             //    }
-                                
+
                             //}
                             //Add enemy's dropped enemy to current room (Remove item from Enemy's inventory, Add it to current room's inventory"
+                        }
+                        else
+                        {
+                            Player.CurrentRoom.RemoveEnemyFromRoom(enemyToAttack);
+                            Output.WriteLine($"The {enemyToAttack.Name} has been defeated!");
                         }
                     }
                 }

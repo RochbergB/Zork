@@ -25,6 +25,8 @@
         Score = Reward,
         Attack,
         A = Attack,
+        Eat,
+        Use = Eat,
         Unknown
     }
 }

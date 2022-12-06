@@ -112,15 +112,15 @@ namespace Zork.Common
             }
         }
 
-        public void AddEnemyItemToInventory(Item enemyItemToAdd)
-        {
-            if (_inventory.Contains(enemyItemToAdd))
-            {
-                throw new Exception($"Item {enemyItemToAdd} already exists in inventory.");
-            }
+        //public void AddEnemyItemToInventory(Item enemyItemToAdd)
+        //{
+        //    if (_inventory.Contains(enemyItemToAdd))
+        //    {
+        //        throw new Exception($"Item {enemyItemToAdd} already exists in inventory.");
+        //    }
 
-            _inventory.Add(enemyItemToAdd);
-        }
+        //    _inventory.Add(enemyItemToAdd);
+        //}
 
         public void RemoveEnemyFromRoom(Enemy enemyToRemove)
         {

@@ -8,11 +8,11 @@ namespace Zork.Common
         public event EventHandler<Room> LocationChanged;
         public event EventHandler<int> MovesChanged;
         public event EventHandler<int> ScoreChanged;
-        //public event EventHandler<int> HealthChanged;
+        public event EventHandler<int> HealthChanged;
 
         public int Moves;
         public int Score;
-        //public int Health;
+        public int Health = 10;
 
         public Room CurrentRoom
         {
@@ -78,15 +78,21 @@ namespace Zork.Common
 
         public void AddScore()
         {
-            Score++;
+            //Score++;
             ScoreChanged?.Invoke(this, Score);
         }
 
-        //public void MinusHealth()
+        //public void AddHealth()
         //{
-        //    Score--;
-        //    ScoreChanged?.Invoke(this, Score);
+        //    Health++;
+        //    ScoreChanged?.Invoke(this, Health);
         //}
+
+        public void MinusHealth()
+        {
+            //Health--;
+            HealthChanged?.Invoke(this, Health);
+        }
 
         private readonly World _world;
         private Room _currentRoom;
