@@ -17,7 +17,9 @@
         West,
         W = West,
         Take,
+        Grab = Take,
         Drop,
+        Remove = Drop,
         Inventory,
         I = Inventory,
         Reward,
@@ -25,6 +27,7 @@
         Score = Reward,
         Attack,
         A = Attack,
+        Fight = Attack,
         Eat,
         Use = Eat,
         Unknown

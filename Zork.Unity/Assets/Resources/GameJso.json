@@ -5,43 +5,26 @@
       {
         "Name": "Mat",
         "LookDescription": "A rubber mat saying 'Welcome to Zork!' lies here.",
-        "InventoryDescription": "A welcome mat."
+        "InventoryDescription": "A welcome mat.",
+        "Damage": 0
       },
       {
         "Name": "Mailbox",
         "LookDescription": "There is a small mailbox here.",
-        "InventoryDescription": "A small mailbox."
+        "InventoryDescription": "A small mailbox.",
+        "Damage": 0
       },
       {
         "Name": "Leaves",
         "LookDescription": "There is a pile of leaves here.",
-        "InventoryDescription": "A pile of leaves."
+        "InventoryDescription": "A pile of leaves.",
+        "Damage": 0
       },
       {
         "Name": "Sword",
         "LookDescription": "A shining sword lies on the ground here.",
         "InventoryDescription": "A sword",
         "Damage": 3
-      },
-      {
-        "Name": "Apple",
-        "LookDescription": "A glistening red apple hangs from a short branch.",
-        "InventoryDescription": "An apple",
-        "EatDescription": "You took a giant chomp of the apple and took out the worm inside.",
-        "Heal": 3
-      },
-      {
-        "Name": "Axe",
-        "LookDescription": "A sharp axe lies against a tree.",
-        "InventoryDescription": "An axe",
-        "Damage": 4
-      },
-      {
-        "Name": "Orange",
-        "LookDescription": "A sugary orange rests on the ground, surprisingly it isn't covered in dirt.",
-        "InventoryDescription": "An orange",
-        "EatDescription": "You peeled the orange and ate each slice.",
-        "Heal": 2
       }
     ],
     "Enemies": [
@@ -64,8 +47,7 @@
         "InventoryNames": [
           "Mat",
           "Mailbox",
-          "Sword",
-          "Orange"
+          "Sword"
         ]
       },
       {
@@ -82,8 +64,7 @@
         "Description": "You are facing the south side of a white house. There is no door here, and all the windows are barred.",
         "NeighborNames": {
           "East": "Behind House",
-          "West": "West of House",
-          "South": "Forest 3"
+          "West": "West of House"
         },
         "EnemyNames": [
           "Goblin"
@@ -121,39 +102,17 @@
         "NeighborNames": {
           "North": "South of House",
           "East": "Clearing"
-        },
-        "IventoryNames": [
-          "Apple"
-        ]
-      },
-      {
-        "Name": "Clearing",
-        "Description": "You are in a clearing, with a forest to the west and rocky path to the south.",
-        "NeighborNames": {
-          "West": "Forest 2",
-          "South": "Rocky Forest Entrance"
-        },
-        "IventoryNames": [
-          "Leaves"
-        ]
-      },
-      {
-        "Name": "Rocky Forest Entrance",
-        "Description": "You are in a clearing, with a forest to the west and rocky path to the south.",
-        "NeighborNames": {
-          "North": "Clearing",
-          "South": "Rocky Pillars 2"
         }
       },
       {
-        "Name": "Rocky Pillars 2",
-        "Description": "You are in a clearing, with a forest to the west and rocky path to the south.",
+        "Name": "Clearing",
+        "Description": "You are in a clearing, with a forest surrounding you on the west and south.",
         "NeighborNames": {
-          "North": "Rocky Forest Entrance",
-          "South": "Rocky Forest Entrance"
+          "West": "Forest 2",
+          "South": "Forest 3"
         },
         "IventoryNames": [
-          "Axe"
+          "Leaves"
         ]
       }
     ]

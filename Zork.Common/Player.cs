@@ -12,7 +12,8 @@ namespace Zork.Common
 
         public int Moves;
         public int Score;
-        public int Health = 10;
+        public int maxHealth = 15;
+        public int Health;
 
         public Room CurrentRoom
         {
@@ -78,19 +79,11 @@ namespace Zork.Common
 
         public void AddScore()
         {
-            //Score++;
             ScoreChanged?.Invoke(this, Score);
         }
 
-        //public void AddHealth()
-        //{
-        //    Health++;
-        //    ScoreChanged?.Invoke(this, Health);
-        //}
-
-        public void MinusHealth()
+        public void ChangeHealth()
         {
-            //Health--;
             HealthChanged?.Invoke(this, Health);
         }
 
