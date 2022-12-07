@@ -29,7 +29,6 @@
         A = Attack,
         Fight = Attack,
         Eat,
-        Use = Eat,
         Unknown
     }
 }

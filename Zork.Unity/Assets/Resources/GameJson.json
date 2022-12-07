@@ -18,24 +18,46 @@
         "InventoryDescription": "A pile of leaves."
       },
       {
+        "Name": "Scroll",
+        "LookDescription": "A withered scroll is on ground creating small light.",
+        "InventoryDescription": "A scroll."
+      },
+      {
+        "Name": "Key",
+        "LookDescription": "A key to something lies here.",
+        "InventoryDescription": "A key."
+      },
+      {
         "Name": "Sword",
         "LookDescription": "A shining sword lies on the ground here.",
         "InventoryDescription": "A sword",
+        "Damage": 4
+      },
+      {
+        "Name": "Axe",
+        "LookDescription": "A sharp axe rests on the ground.",
+        "InventoryDescription": "An axe",
+        "Damage": 5
+      },
+      {
+        "Name": "Dagger",
+        "LookDescription": "A small but pointy dagger lies here.",
+        "InventoryDescription": "A dagger",
+        "Damage": 2
+      },
+      {
+        "Name": "Coconut",
+        "LookDescription": "A coconut good for smashing things is ready to be picked up here.",
+        "InventoryDescription": "A coconut",
         "Damage": 3
       },
       {
         "Name": "Apple",
-        "LookDescription": "A glistening red apple hangs from a short branch.",
+        "LookDescription": "A glistening red apple shines from the ground.",
         "InventoryDescription": "An apple",
         "EatDescription": "You took a giant chomp of the apple and took out the worm inside.",
         "Heal": 3,
         "Points": 2
-      },
-      {
-        "Name": "Axe",
-        "LookDescription": "A sharp axe lies against a tree.",
-        "InventoryDescription": "An axe",
-        "Damage": 4
       },
       {
         "Name": "Orange",
@@ -47,11 +69,59 @@
       },
       {
         "Name": "Pear",
-        "LookDescription": "The greenest pear you've ever seen is at your feet.'",
+        "LookDescription": "The greenest pear you've ever seen is at your feet.",
         "InventoryDescription": "A Pear",
         "EatDescription": "You took a nice big bite out of the pear.",
         "Heal": 5,
         "Points": 4
+      },
+      {
+        "Name": "Mushroom",
+        "LookDescription": "A great red and white mushroom from the Mushroom Tree lies on the ground.",
+        "InventoryDescription": "A Mushroom",
+        "EatDescription": "You think you're getting dizzy, but you just ate a normal mushroom.",
+        "Heal": 3,
+        "Points": 4
+      },
+      {
+        "Name": "Banana",
+        "LookDescription": "A nice ripe banana is ready for the taking at your feet.",
+        "InventoryDescription": "A Banana",
+        "EatDescription": "You ate the whole banana, peel and all.",
+        "Heal": 6,
+        "Points": 5
+      },
+      {
+        "Name": "Peach",
+        "LookDescription": "A nice fresh looking peach stares at you from the ground.",
+        "InventoryDescription": "A Peach",
+        "EatDescription": "You just ate a peach, good job!",
+        "Heal": 4,
+        "Points": 6
+      },
+      {
+        "Name": "Plum",
+        "LookDescription": "A nice juicy plum just wants you to take it.",
+        "InventoryDescription": "A Plum",
+        "EatDescription": "You figured out how to eat a plum, and then you ate it.",
+        "Heal": 3,
+        "Points": 2
+      },
+      {
+        "Name": "Mango",
+        "LookDescription": "The perfect mango lies at you feet hoping you don't miss it.",
+        "InventoryDescription": "A Mango",
+        "EatDescription": "You took a nice big bite out of the mango, with the skin on.",
+        "Heal": 5,
+        "Points": 3
+      },
+      {
+        "Name": "Melon",
+        "LookDescription": "A giant melon lies here, and is somehow not rolling away.",
+        "InventoryDescription": "A Melon",
+        "EatDescription": "You just ate an entire melon whole...",
+        "Heal": 10,
+        "Points": 8
       }
     ],
     "Enemies": [
@@ -70,8 +140,35 @@
         "AttackDescription": "The Golem swung one of its large rock hands at you.",
         "DefeatDescription": "The Golem disassemble into a bunch of small pebbles.",
         "Health": 20,
-        "Damage": 4,
+        "Damage": 5,
         "Points": 30
+      },
+      {
+        "Name": "Wolf",
+        "Description": "One hungry Wolf can't get you out of its sight.",
+        "AttackDescription": "The Wolf ran up and bit you.",
+        "DefeatDescription": "The Wolf howled as it fell to the ground.",
+        "Health": 8,
+        "Damage": 3,
+        "Points": 10
+      },
+      {
+        "Name": "Troll",
+        "Description": "A large menacing Troll stands in front of the Mushroom Tree.",
+        "AttackDescription": "The Troll punched you and told you to leave.",
+        "DefeatDescription": "The Troll fell and knocked its head on a branch.",
+        "Health": 16,
+        "Damage": 4,
+        "Points": 20
+      },
+      {
+        "Name": "Witch",
+        "Description": "A scary Witch appeared out of nowehere is mad at you for some reason.",
+        "AttackDescription": "The Witch splashed on of her potions on you.",
+        "DefeatDescription": "The Witch drank one of her potions and flew away.",
+        "Health": 12,
+        "Damage": 3,
+        "Points": 15
       }
     ],
     "Rooms": [
@@ -133,7 +230,8 @@
         "Name": "Forest 2",
         "Description": "This is a dimly lit forest, with large trees all around. One particularly large tree with some low branches stands here.",
         "NeighborNames": {
-          "South": "Clearing",
+          "North": "Mushroom Patch 2",
+          "South": "North of House",
           "East": "Clearing"
         }
       },
@@ -142,10 +240,23 @@
         "Description": "This is a dimly lit forest, with large trees all around. To the east, there appears to be sunlight.",
         "NeighborNames": {
           "North": "South of House",
+          "South": "River Crossing",
           "East": "Clearing"
         },
         "IventoryNames": [
           "Apple"
+        ]
+      },
+      {
+        "Name": "Forest 4",
+        "Description": "This is a dimly lit forest, with large trees all around. You can see the start of a river.",
+        "NeighborNames": {
+          "South": "Rocky Pillars",
+          "East": "Rocky Pillars",
+          "North": "Mushroom Patch"
+        },
+        "EnemyNames": [
+          "Wolf"
         ]
       },
       {
@@ -154,10 +265,7 @@
         "NeighborNames": {
           "West": "Forest 2",
           "South": "Rocky Forest Entrance"
-        },
-        "IventoryNames": [
-          "Leaves"
-        ]
+        }
       },
       {
         "Name": "Rocky Forest Entrance",
@@ -165,14 +273,25 @@
         "NeighborNames": {
           "North": "Clearing",
           "South": "Rocky Pillars 2"
+        },
+        "IventoryNames": [
+          "Leaves"
+        ]
+      },
+      {
+        "Name": "River Crossing",
+        "Description": "You are in a clearing, with a forest to the west and rocky path to the south.",
+        "NeighborNames": {
+          "North": "Forest 3",
+          "South": "Rocky Pillars"
         }
       },
       {
         "Name": "Rocky Pillars",
         "Description": "You are in a clearing, with a forest to the west and rocky path to the south.",
         "NeighborNames": {
-          //"North": "River Crossing",
-          //"West": "Forest 4",
+          "North": "River Crossing",
+          "West": "Forest 4",
           "East": "Top of the Pillars"
         },
         "IventoryNames": [
@@ -185,7 +304,7 @@
         "Description": "You are in a clearing, with a forest to the west and rocky path to the south.",
         "NeighborNames": {
           "North": "Rocky Forest Entrance",
-          "South": "Rocky Forest Entrance"
+          "West": "Top of the Pillars"
         },
         "IventoryNames": [
           "Axe"
@@ -193,12 +312,49 @@
       },
       {
         "Name": "Top of the Pillars",
-        "Description": "Above the trees, you can see all the land including the house to the north. It feels like you're walking on a pebble carpet tho.'",
+        "Description": "Above the trees, you can see all the land including the house to the north. It feels like you're walking on a pebble carpet though.'",
         "NeighborNames": {
           "West": "Rocky Pillars"
         },
         "EnemyNames": [
           "Golem"
+        ]
+      },
+      {
+        "Name": "Mushroom Patch",
+        "Description": "You are in a clearing, with a forest to the west and rocky path to the south.",
+        "NeighborNames": {
+          "South": "Forest 4",
+          "North": "The Mushroom Tree",
+          "East": "Forest 1"
+        },
+        "IventoryNames": [
+          "Leaves"
+        ]
+      },
+      {
+        "Name": "Mushroom Patch 2",
+        "Description": "You are in a clearing, with a forest to the west and rocky path to the south.",
+        "NeighborNames": {
+          "South": "Forest 2",
+          "West": "The Mushroom Tree"
+        },
+        "IventoryNames": [
+          "Leaves"
+        ]
+      },
+      {
+        "Name": "The Mushroom Tree",
+        "Description": "You are in a clearing, with a forest to the west and rocky path to the south.",
+        "NeighborNames": {
+          "South": "Mushroom Patch",
+          "East": "Mushroom Patch 2"
+        },
+        "InventoryNames": [
+          "Mushroom"
+        ],
+        "EnemyNames": [
+          "Troll"
         ]
       }
     ]
