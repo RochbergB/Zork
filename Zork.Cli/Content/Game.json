@@ -46,6 +46,12 @@
         "Damage": 2
       },
       {
+        "Name": "Spear",
+        "LookDescription": "A pointy spear lies here.",
+        "InventoryDescription": "A spear",
+        "Damage": 3
+      },
+      {
         "Name": "Coconut",
         "LookDescription": "A coconut good for smashing things is ready to be picked up here.",
         "InventoryDescription": "A coconut",
@@ -183,7 +189,7 @@
         "InventoryNames": [
           "Mat",
           "Mailbox",
-          "Sword",
+          "Dagger",
           "Orange"
         ]
       },
@@ -194,7 +200,10 @@
           "North": "Forest 2",
           "East": "Behind House",
           "West": "West of House"
-        }
+        },
+        "InventoryNames": [
+          "Plum"
+        ]
       },
       {
         "Name": "South of House",
@@ -222,9 +231,14 @@
         "LookName": "Forest",
         "Description": "This is a forest, with trees in all directions around you.",
         "NeighborNames": {
+          "North": "Forest 2",
           "South": "Forest 3",
-          "East": "West of House"
-        }
+          "East": "West of House",
+          "West": "Mushroom Patch"
+        },
+        "EnemyNames": [
+          "Witch"
+        ]
       },
       {
         "Name": "Forest 2",
@@ -233,11 +247,14 @@
           "North": "Mushroom Patch 2",
           "South": "North of House",
           "East": "Clearing"
-        }
+        },
+        "InventoryNames": [
+          "Sword"
+        ]
       },
       {
         "Name": "Forest 3",
-        "Description": "This is a dimly lit forest, with large trees all around. To the east, there appears to be sunlight.",
+        "Description": "This is a dimly lit forest, with large trees all around. To the east, there appears to be sunlight. You can see a riverbed to the south.",
         "NeighborNames": {
           "North": "South of House",
           "South": "River Crossing",
@@ -255,6 +272,9 @@
           "East": "Rocky Pillars",
           "North": "Mushroom Patch"
         },
+        "InventoryNames": [
+          "Peach"
+        ],
         "EnemyNames": [
           "Wolf"
         ]
@@ -265,7 +285,10 @@
         "NeighborNames": {
           "West": "Forest 2",
           "South": "Rocky Forest Entrance"
-        }
+        },
+        "InventoryNames": [
+          "Coconut"
+        ]
       },
       {
         "Name": "Rocky Forest Entrance",
@@ -275,7 +298,8 @@
           "South": "Rocky Pillars 2"
         },
         "IventoryNames": [
-          "Leaves"
+          "Leaves",
+          "Pear"
         ]
       },
       {
@@ -296,7 +320,7 @@
         },
         "IventoryNames": [
           "Spear",
-          "Pear"
+          "Mango"
         ]
       },
       {
@@ -307,15 +331,19 @@
           "West": "Top of the Pillars"
         },
         "IventoryNames": [
+          "Banana",
           "Axe"
         ]
       },
       {
         "Name": "Top of the Pillars",
-        "Description": "Above the trees, you can see all the land including the house to the north. It feels like you're walking on a pebble carpet though.'",
+        "Description": "Above the trees, you can see all the land including the house to the north. A large rock blocks your way west. It feels like you're walking on a pebble carpet though.'",
         "NeighborNames": {
           "West": "Rocky Pillars"
         },
+        "InventoryNames": [
+          "Key"
+        ],
         "EnemyNames": [
           "Golem"
         ]
@@ -329,7 +357,7 @@
           "East": "Forest 1"
         },
         "IventoryNames": [
-          "Leaves"
+          "Mushroom"
         ]
       },
       {
@@ -340,7 +368,7 @@
           "West": "The Mushroom Tree"
         },
         "IventoryNames": [
-          "Leaves"
+          "Dagger"
         ]
       },
       {
@@ -351,7 +379,8 @@
           "East": "Mushroom Patch 2"
         },
         "InventoryNames": [
-          "Mushroom"
+          "Melon",
+          "Scroll"
         ],
         "EnemyNames": [
           "Troll"
