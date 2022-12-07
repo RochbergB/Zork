@@ -28,7 +28,8 @@
         "LookDescription": "A glistening red apple hangs from a short branch.",
         "InventoryDescription": "An apple",
         "EatDescription": "You took a giant chomp of the apple and took out the worm inside.",
-        "Heal": 3
+        "Heal": 3,
+        "Points": 2
       },
       {
         "Name": "Axe",
@@ -41,15 +42,36 @@
         "LookDescription": "A sugary orange rests on the ground, surprisingly it isn't covered in dirt.",
         "InventoryDescription": "An orange",
         "EatDescription": "You peeled the orange and ate each slice.",
-        "Heal": 2
+        "Heal": 2,
+        "Points": 3
+      },
+      {
+        "Name": "Pear",
+        "LookDescription": "The greenest pear you've ever seen is at your feet.'",
+        "InventoryDescription": "A Pear",
+        "EatDescription": "You took a nice big bite out of the pear.",
+        "Heal": 5,
+        "Points": 4
       }
     ],
     "Enemies": [
       {
         "Name": "Goblin",
         "Description": "A goblin has appeared and wants to fight you.",
+        "AttackDescription": "The goblin scratched you.",
+        "DefeatDescription": "The goblin slowly fell to the ground.",
         "Health": 5,
-        "Damage": 1
+        "Damage": 1,
+        "Points": 5
+      },
+      {
+        "Name": "Golem",
+        "Description": "A large bulky Golem guards the top of the Rocky Pillars.",
+        "AttackDescription": "The Golem swung one of its large rock hands at you.",
+        "DefeatDescription": "The Golem disassemble into a bunch of small pebbles.",
+        "Health": 20,
+        "Damage": 4,
+        "Points": 30
       }
     ],
     "Rooms": [
@@ -146,6 +168,19 @@
         }
       },
       {
+        "Name": "Rocky Pillars",
+        "Description": "You are in a clearing, with a forest to the west and rocky path to the south.",
+        "NeighborNames": {
+          //"North": "River Crossing",
+          //"West": "Forest 4",
+          "East": "Top of the Pillars"
+        },
+        "IventoryNames": [
+          "Spear",
+          "Pear"
+        ]
+      },
+      {
         "Name": "Rocky Pillars 2",
         "Description": "You are in a clearing, with a forest to the west and rocky path to the south.",
         "NeighborNames": {
@@ -154,6 +189,16 @@
         },
         "IventoryNames": [
           "Axe"
+        ]
+      },
+      {
+        "Name": "Top of the Pillars",
+        "Description": "Above the trees, you can see all the land including the house to the north. It feels like you're walking on a pebble carpet tho.'",
+        "NeighborNames": {
+          "West": "Rocky Pillars"
+        },
+        "EnemyNames": [
+          "Golem"
         ]
       }
     ]

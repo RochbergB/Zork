@@ -166,6 +166,7 @@ namespace Zork.Common
                         if (string.IsNullOrEmpty(subject))
                         {
                             Output.WriteLine("What are you trying to attack?");
+                            Player.AddMoves();
                             return;
                         }
                         else
@@ -173,6 +174,7 @@ namespace Zork.Common
                             if (string.IsNullOrEmpty(weapon))
                             {
                                 Output.WriteLine("What are you using to attack?");
+                                Player.AddMoves();
                                 return;
                             }
                             else
@@ -180,6 +182,7 @@ namespace Zork.Common
                                 if (string.Compare(with, "With", ignoreCase: true) != 0)
                                 {
                                     Output.WriteLine("Attacking how?");
+                                    Player.AddMoves();
                                     return;
                                 }
                                 else
@@ -261,16 +264,18 @@ namespace Zork.Common
                     else
                     {
                         Player.Health += itemToEat.Heal;
+                        Player.Score += itemToEat.Points;
                         if (Player.Health > Player.maxHealth)
                         {
                             Player.Health = Player.maxHealth;
-                            Output.WriteLine($"{itemToEat.EatDescription} You now have the max {Player.Health} Health.");
+                            Output.WriteLine($"{itemToEat.EatDescription} You are rewarded with {itemToEat.Points} Points! You now have {Player.Score} Points and the max {Player.Health} Health.");
                         }
                         else
                         {
-                            Output.WriteLine($"{itemToEat.EatDescription} You now have {Player.Health} Health.");
+                            Output.WriteLine($"{itemToEat.EatDescription} You are rewarded with {itemToEat.Points} Points! You now have {Player.Score} Points and {Player.Health} Health.");
                         }
                         Player.ChangeHealth();
+                        Player.AddScore();
                         Player.RemoveItemFromInventory(itemToEat);
                     }
                 }
@@ -310,7 +315,7 @@ namespace Zork.Common
                         {
                             Player.Health -= enemyToAttack.Damage;
                             Player.ChangeHealth();
-                            Output.WriteLine($"The {enemyToAttack.Name} hit you. You now have {Player.Health} Health.");
+                            Output.WriteLine($"{enemyToAttack.AttackDescription} You now have {Player.Health} Health.");
 
                             //if (enemyToAttack.EInventory.Count() > 0)
                             //{
@@ -326,10 +331,10 @@ namespace Zork.Common
                         }
                         else
                         {
-                            Player.Score += 5;
-                            Player.AddScore();
                             Player.CurrentRoom.RemoveEnemyFromRoom(enemyToAttack);
-                            Output.WriteLine($"The {enemyToAttack.Name} has been defeated! You are rewarded with 5 Points! You now have {Player.Score} Points.");
+                            Player.Score += enemyToAttack.Points;
+                            Output.WriteLine($"{enemyToAttack.DefeatDescription} You earned {enemyToAttack.Points} Points! You now have {Player.Score} Points.");
+                            Player.AddScore();
                         }
                     }
                 }

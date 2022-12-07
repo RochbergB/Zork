@@ -10,19 +10,28 @@ namespace Zork.Common
 
         public string Description { get; }
 
+        public string AttackDescription { get; }
+
+        public string DefeatDescription { get; }
+
         public int Health { get; set; }
 
         public int Damage { get; }
 
+        public int Points { get; }
+
         //public IEnumerable<Item> EInventory => _eInventory;
         //public string[] EnemyInventoryNames { get; set; }
 
-        public Enemy(string name, string description, int health, int damage)//, string[] enemyInventoryNames
+        public Enemy(string name, string description, string attackDescription, string defeatDescription, int health, int damage, int points)//, string[] enemyInventoryNames
         {
             Name = name;
             Description = description;
+            AttackDescription = attackDescription;
+            DefeatDescription = defeatDescription;
             Health = health;
             Damage = damage;
+            Points = points;
 
             //EnemyInventoryNames = enemyInventoryNames ?? new string[0];
             //_eInventory = new List<Item>();
