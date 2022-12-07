@@ -5,27 +5,27 @@
       {
         "Name": "Mat",
         "LookDescription": "A rubber mat saying 'Welcome to Zork!' lies here.",
-        "InventoryDescription": "A welcome mat."
+        "InventoryDescription": "A welcome mat"
       },
       {
         "Name": "Mailbox",
         "LookDescription": "There is a small mailbox here.",
-        "InventoryDescription": "A small mailbox."
+        "InventoryDescription": "A small mailbox"
       },
       {
         "Name": "Leaves",
         "LookDescription": "There is a pile of leaves here.",
-        "InventoryDescription": "A pile of leaves."
+        "InventoryDescription": "A pile of leaves"
       },
       {
         "Name": "Scroll",
         "LookDescription": "A withered scroll is on ground creating small light.",
-        "InventoryDescription": "A scroll."
+        "InventoryDescription": "A scroll"
       },
       {
         "Name": "Key",
         "LookDescription": "A key to something lies here.",
-        "InventoryDescription": "A key."
+        "InventoryDescription": "A key"
       },
       {
         "Name": "Sword",
@@ -76,7 +76,7 @@
       {
         "Name": "Pear",
         "LookDescription": "The greenest pear you've ever seen is at your feet.",
-        "InventoryDescription": "A Pear",
+        "InventoryDescription": "A pear",
         "EatDescription": "You took a nice big bite out of the pear.",
         "Heal": 5,
         "Points": 4
@@ -84,7 +84,7 @@
       {
         "Name": "Mushroom",
         "LookDescription": "A great red and white mushroom from the Mushroom Tree lies on the ground.",
-        "InventoryDescription": "A Mushroom",
+        "InventoryDescription": "A mushroom",
         "EatDescription": "You think you're getting dizzy, but you just ate a normal mushroom.",
         "Heal": 3,
         "Points": 4
@@ -92,7 +92,7 @@
       {
         "Name": "Banana",
         "LookDescription": "A nice ripe banana is ready for the taking at your feet.",
-        "InventoryDescription": "A Banana",
+        "InventoryDescription": "A banana",
         "EatDescription": "You ate the whole banana, peel and all.",
         "Heal": 6,
         "Points": 5
@@ -100,7 +100,7 @@
       {
         "Name": "Peach",
         "LookDescription": "A nice fresh looking peach stares at you from the ground.",
-        "InventoryDescription": "A Peach",
+        "InventoryDescription": "A peach",
         "EatDescription": "You just ate a peach, good job!",
         "Heal": 4,
         "Points": 6
@@ -108,7 +108,7 @@
       {
         "Name": "Plum",
         "LookDescription": "A nice juicy plum just wants you to take it.",
-        "InventoryDescription": "A Plum",
+        "InventoryDescription": "A plum",
         "EatDescription": "You figured out how to eat a plum, and then you ate it.",
         "Heal": 3,
         "Points": 2
@@ -116,7 +116,7 @@
       {
         "Name": "Mango",
         "LookDescription": "The perfect mango lies at you feet hoping you don't miss it.",
-        "InventoryDescription": "A Mango",
+        "InventoryDescription": "A mango",
         "EatDescription": "You took a nice big bite out of the mango, with the skin on.",
         "Heal": 5,
         "Points": 3
@@ -124,7 +124,7 @@
       {
         "Name": "Melon",
         "LookDescription": "A giant melon lies here, and is somehow not rolling away.",
-        "InventoryDescription": "A Melon",
+        "InventoryDescription": "A melon",
         "EatDescription": "You just ate an entire melon whole...",
         "Heal": 10,
         "Points": 8
@@ -242,7 +242,7 @@
       },
       {
         "Name": "Forest 2",
-        "Description": "This is a dimly lit forest, with large trees all around. One particularly large tree with some low branches stands here.",
+        "Description": "This is a dimly lit forest, with large trees all around. A trail of mushrooms lead north.",
         "NeighborNames": {
           "North": "Mushroom Patch 2",
           "South": "North of House",
@@ -260,13 +260,13 @@
           "South": "River Crossing",
           "East": "Clearing"
         },
-        "IventoryNames": [
+        "InventoryNames": [
           "Apple"
         ]
       },
       {
         "Name": "Forest 4",
-        "Description": "This is a dimly lit forest, with large trees all around. You can see the start of a river.",
+        "Description": "This is a dimly lit forest, with large trees all around. A rocky path to the south and east and a mushroom path to the norht.",
         "NeighborNames": {
           "South": "Rocky Pillars",
           "East": "Rocky Pillars",
@@ -292,19 +292,19 @@
       },
       {
         "Name": "Rocky Forest Entrance",
-        "Description": "You are in a clearing, with a forest to the west and rocky path to the south.",
+        "Description": "The entrance to a rocky forest, some legends speak of a mysterious monster at the top of the pillars.",
         "NeighborNames": {
           "North": "Clearing",
           "South": "Rocky Pillars 2"
         },
-        "IventoryNames": [
+        "InventoryNames": [
           "Leaves",
           "Pear"
         ]
       },
       {
         "Name": "River Crossing",
-        "Description": "You are in a clearing, with a forest to the west and rocky path to the south.",
+        "Description": "You are at a river with bridge atop it leading south.",
         "NeighborNames": {
           "North": "Forest 3",
           "South": "Rocky Pillars"
@@ -312,32 +312,32 @@
       },
       {
         "Name": "Rocky Pillars",
-        "Description": "You are in a clearing, with a forest to the west and rocky path to the south.",
+        "Description": "You've reached part of the Rocky Pillars in a rocky forest with more forest west and a steap rcok path to the east.",
         "NeighborNames": {
           "North": "River Crossing",
           "West": "Forest 4",
           "East": "Top of the Pillars"
         },
-        "IventoryNames": [
+        "InventoryNames": [
           "Spear",
           "Mango"
         ]
       },
       {
         "Name": "Rocky Pillars 2",
-        "Description": "You are in a clearing, with a forest to the west and rocky path to the south.",
+        "Description": "You've reached part of the Rocky Pillars in a rocky forest. West leads you to the top of the Pillars but a huge rock stops you from returning east.",
         "NeighborNames": {
           "North": "Rocky Forest Entrance",
           "West": "Top of the Pillars"
         },
-        "IventoryNames": [
+        "InventoryNames": [
           "Banana",
           "Axe"
         ]
       },
       {
         "Name": "Top of the Pillars",
-        "Description": "Above the trees, you can see all the land including the house to the north. A large rock blocks your way west. It feels like you're walking on a pebble carpet though.'",
+        "Description": "Above the trees, you can see all the land including the house to the north. A large rock blocks your way east. It feels like you're walking on a pebble carpet.",
         "NeighborNames": {
           "West": "Rocky Pillars"
         },
@@ -350,30 +350,27 @@
       },
       {
         "Name": "Mushroom Patch",
-        "Description": "You are in a clearing, with a forest to the west and rocky path to the south.",
+        "Description": "You've reached a mushroom patch filled with mushrooms and freaky sounds. There's large trees all around and peculiar mushroom tree to the north.",
         "NeighborNames": {
           "South": "Forest 4",
           "North": "The Mushroom Tree",
           "East": "Forest 1"
         },
-        "IventoryNames": [
+        "InventoryNames": [
           "Mushroom"
         ]
       },
       {
         "Name": "Mushroom Patch 2",
-        "Description": "You are in a clearing, with a forest to the west and rocky path to the south.",
+        "Description": "You've reached a mushroom patch filled with mushrooms and freaky sounds. There's large trees all around and peculiar mushroom tree to the west.",
         "NeighborNames": {
           "South": "Forest 2",
           "West": "The Mushroom Tree"
-        },
-        "IventoryNames": [
-          "Dagger"
-        ]
+        }
       },
       {
         "Name": "The Mushroom Tree",
-        "Description": "You are in a clearing, with a forest to the west and rocky path to the south.",
+        "Description": "You are at the front of a large mushroom tree with strange and twisting branches blocking all light.",
         "NeighborNames": {
           "South": "Mushroom Patch",
           "East": "Mushroom Patch 2"

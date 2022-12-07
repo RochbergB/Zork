@@ -37,7 +37,7 @@ namespace Zork.Common
             IsRunning = true;
             Input.InputReceived += OnInputReceived;
             Player.Health = Player.maxHealth;
-            Output.WriteLine("Welcome to Zork!");
+            Output.WriteLine($"Welcome to Zork! You have the max {Player.maxHealth} Health and {Player.Score} Points.");
             Look();
             Output.WriteLine($"\n{Player.CurrentRoom}");
         }
@@ -84,7 +84,7 @@ namespace Zork.Common
             {
                 case Commands.Quit:
                     IsRunning = false;
-                    Output.WriteLine("Thank you for playing!");
+                    Output.WriteLine($"Thank you for playing! You finished with {Player.Score} Points!");
                     break;
 
                 case Commands.Look:
@@ -293,17 +293,14 @@ namespace Zork.Common
             }
             else
             {
-
                 if (itemToAttack.Damage == 0)
                 {
                     Output.WriteLine("This item can't damage enemies.");
                 }
                 else
                 {
-
                     if (enemyToAttack == null)
                     {
-                        
                         Output.WriteLine("There is no such enemy.");
                     }
                     else
@@ -322,21 +319,9 @@ namespace Zork.Common
                             }
                             else
                             {
-                                Output.WriteLine($"{enemyToAttack.AttackDescription} You lost all your Health and died.");
+                                Output.WriteLine($"{enemyToAttack.AttackDescription} You lost all your health and Died.");
                                 Death();
                             }
-                            
-                            //if (enemyToAttack.EInventory.Count() > 0)
-                            //{
-                            //    foreach (Item item in enemyToAttack.EInventory)
-                            //    {
-                            //        Item enemyItemToDrop = enemyToAttack.EInventory.First();
-                            //        enemyToAttack.RemoveEnemyItemFromInventory(enemyItemToDrop);
-                            //        Player.CurrentRoom.AddItemToInventory(enemyItemToDrop);
-                            //    }
-
-                            //}
-                            //Add enemy's dropped enemy to current room (Remove item from Enemy's inventory, Add it to current room's inventory"
                         }
                         else
                         {

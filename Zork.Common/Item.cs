@@ -26,7 +26,6 @@
             Heal = heal;
             Points = points;
         }
-
         public override string ToString() => Name;
     }
 }

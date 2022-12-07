@@ -1,7 +1,6 @@
 ﻿using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
-using System.Diagnostics;
 
 namespace Zork.Common
 {
@@ -111,16 +110,6 @@ namespace Zork.Common
                 throw new Exception("Could not remove item from inventory.");
             }
         }
-
-        //public void AddEnemyItemToInventory(Item enemyItemToAdd)
-        //{
-        //    if (_inventory.Contains(enemyItemToAdd))
-        //    {
-        //        throw new Exception($"Item {enemyItemToAdd} already exists in inventory.");
-        //    }
-
-        //    _inventory.Add(enemyItemToAdd);
-        //}
 
         public void RemoveEnemyFromRoom(Enemy enemyToRemove)
         {
